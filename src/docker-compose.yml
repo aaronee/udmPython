@@ -1,0 +1,12 @@
+# Docker compose yaml is to instruct the build of multi docker containers, manage ports between them, like web-app1, web-app2, database
+# Dockerfile is to instruct how to build the desired container, what should be in it, what should we run when its up 
+
+# Run ">> docker-compose build" to build docker
+version: '3'
+
+services:
+  web:
+    build: ./web
+    #bind the port 5001 in the host machine to port 5000 in the container; we should querry from localhost:5001/ from postMan now
+    ports:
+      - 5001:5000
